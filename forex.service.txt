@@ -1,0 +1,22 @@
+[Unit]
+
+Description=Forex module
+
+
+[Service]
+
+WorkingDirectory=/data/forex
+
+ExecStart=/bin/java -Xms128m -Xmx256m -jar Forex-0.0.1-SNAPSHOT.jar
+
+ExecStartPost=/bin/mail -s service_started shilratna@gloify.com
+
+User=ubuntu 
+
+Type=simple 
+
+Restart=on-failure 
+
+RestartSec=10 
+
+[Install]
